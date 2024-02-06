@@ -14,7 +14,7 @@ for (let index = 1; index < 9; index++) {
             lost.textContent = counterLost;
         }
         if (counterDead === 10) {
-            alert('Вы выйграли');
+            alert('Вы выиграли');
             counterDead = 0;
             counterLost = 0;
             dead.textContent = counterDead;
