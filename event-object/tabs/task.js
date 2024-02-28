@@ -1,12 +1,18 @@
-const tabNav = document.querySelectorAll(".tab"),
-tabContent = document.querySelectorAll(".tab__content");
+let tabNav =  Array.prototype.slice.apply(document.querySelectorAll(".tab"));
+let tabContent =  Array.prototype.slice.apply(document.querySelectorAll(".tab__content"));
 
-tabNav.forEach( (item,index) =>  { 
-   item.addEventListener('click',function(){
-     document.querySelector(".tab__content").classList.toggle('tab__content_active')
-         tabNav.forEach( item =>  {
-       item.classList.remove('tab_active')
-     });
-     item.classList.add('tab_active')
-      });
-      });
+tabNav.forEach( item =>  { 
+   item.addEventListener('click', function(event){
+     let target = event.target;
+     if(target.classList.contains('tab')){
+       let tab = tabNav.indexOf(target);
+       tabNav.map(item => item.classList.remove("tab_active"));
+       tabNav[tab].classList.add("tab_active");
+     
+    tabContent.map(tabContent => tabContent.classList.remove("tab__content_active"));
+     tabContent[tab].classList.add("tab__content_active");
+     // console.log(item)
+     }
+    
+   })
+   })
