@@ -20,7 +20,9 @@ class Game {
     addEventListener('keydown', e => this.letter(e));
   }
     letter(e){
-        this.currentSymbol.textContent.includes(e.key) ? this.success() : this.fail();
+      let key = (e.key).toLowerCase();
+      this.currentSymbol.textContent.toLowerCase();
+      this.currentSymbol.textContent.includes(key) ? this.success() : this.fail();
     /*
       TODO:
       Написать обработчик события, который откликается
