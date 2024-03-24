@@ -12,6 +12,7 @@ class Counter {
 			buttonDecrement: parent.querySelector('.product__quantity-control_dec'),
 			buttonIncrement: parent.querySelector('.product__quantity-control_inc'),
 			spanCount: parent.querySelector('.product__quantity-value'),
+			addBasket: parent.querySelector('.product__add'), 
 		};
 		this.addListeners();
 		this.updateCount();
@@ -23,6 +24,7 @@ class Counter {
 	addListeners() {
 		this.refs.buttonDecrement.addEventListener("click", this.onDecrement.bind(this), );
 		this.refs.buttonIncrement.addEventListener("click", this.inDecrement.bind(this), );
+		this.refs.addBasket.addEventListener("click", this.addToBasket.bind(this),);
 	}
 	onDecrement() {
 		if (this.count < 2) return;
@@ -33,6 +35,9 @@ class Counter {
 	inDecrement() {
 		this.count += this.step;
 		this.updateCount();
+	}
+	addToBasket() {
+
 	}
 }
 new Counter({
