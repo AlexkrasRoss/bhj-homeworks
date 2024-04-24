@@ -1,13 +1,12 @@
 let hasTooltip = document.querySelectorAll('a.has-tooltip');
 hasTooltip.forEach(item => {
-	item.addEventListener("click", e => {
-		e.preventDefault();
-
-		if (item.classList.contains('has-tooltip')) {
-			let tooltip = `<div class="tooltip" style="left: 0; top: 0">
+	let tooltip = `<div class="tooltip" style="left: 0; top: 0">
     Проверка!
     </div>`
-			item.insertAdjacentHTML('beforeend', tooltip);
+	item.insertAdjacentHTML('beforebegin', tooltip);
+	item.addEventListener("click", e => {
+		e.preventDefault();
+		if (item.classList.contains('has-tooltip')) {
 
 			let ltip = document.querySelector('.tooltip');
 			ltip.classList.toggle('tooltip_active');
