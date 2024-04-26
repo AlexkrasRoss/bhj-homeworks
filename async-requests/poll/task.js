@@ -1,5 +1,4 @@
 const reURL = 'https://students.netoservices.ru/nestjs-backend/poll'
-const recuestURL = 'https://jsonplaceholder.typicode.com/users'
 const xhr = new XMLHttpRequest();
 
 // // Асинхронный метод
