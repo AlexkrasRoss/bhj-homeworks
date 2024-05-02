@@ -1,4 +1,5 @@
 let cartWrapper = document.querySelector('.cart__products');
+
 // СЧЕТЧИК 
 window.addEventListener("click", e => {
 	const target = e.target
