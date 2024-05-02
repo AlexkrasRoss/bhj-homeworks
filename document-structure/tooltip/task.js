@@ -17,7 +17,7 @@ hasTooltip.forEach(item => {
 			const height = item.offsetHeight;
 
 			ltip.style.position = 'absolute';
-			ltip.style.left = left + (item.offsetWidth - ltip.offsetWidth) / 2 + 'px';
+			ltip.style.left = left + 'px';
 			ltip.style.top = (top + height + 2) + 'px';
 			if (ltip.offsetLeft < 0) {
 				ltip.style.left = 2 + 'px'
