@@ -1,27 +1,32 @@
-let hasTooltip = document.querySelectorAll('a.has-tooltip');
-hasTooltip.forEach(item => {
-	let tooltip = `<div class="tooltip" style="left: 0; top: 0">
-    Проверка!
+let hasTooltip = document.querySelector('.has-tooltip');
+let tooltip = `<div class="tooltip" style="left: 0; top: 0">
+   Проверка!
     </div>`
-	item.insertAdjacentHTML('beforebegin', tooltip);
-	item.addEventListener("click", e => {
-		e.preventDefault();
-		if (item.classList.contains('has-tooltip')) {
+hasTooltip.insertAdjacentHTML('afterend', tooltip);
 
-			let ltip = document.querySelector('.tooltip');
+
+window.addEventListener("click", e => {
+	e.preventDefault();
+	let target = e.target;
+	let ltip = document.querySelector('.tooltip');
+	if (target.classList.contains('has-tooltip')) {
+		if (target.title === ltip.textContent) {
 			ltip.classList.toggle('tooltip_active');
-			ltip.textContent = item.title
+			ltip.textContent = target.title;
+		} else {
+			ltip.classList.add('tooltip_active');
+			ltip.textContent = target.title;
 
-			const left = item.offsetLeft;
-			const top = item.offsetTop;
-			const height = item.offsetHeight;
+			const left = target.offsetLeft;
+			const top = target.offsetTop;
+			const height = target.offsetHeight;
 
 			ltip.style.position = 'absolute';
 			ltip.style.left = left + 'px';
 			ltip.style.top = (top + height + 2) + 'px';
 			if (ltip.offsetLeft < 0) {
 				ltip.style.left = 2 + 'px'
-			};
+			}
 		}
-	})
-})
+	}
+});
