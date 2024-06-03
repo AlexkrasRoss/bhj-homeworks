@@ -1,10 +1,9 @@
 const reURL = 'https://students.netoservices.ru/nestjs-backend/poll'
 const xhr = new XMLHttpRequest();
 
-// // Асинхронный метод
-xhr.open('GET', reURL);
+// // Асинхронный запрос
+xhr.open('GET', reURL, true);
 xhr.responseType = 'json';
-let answer = xhr.response;
 xhr.onload = () => {
 	if (xhr.status >= 400) {
 		console.error(xhr.response)
