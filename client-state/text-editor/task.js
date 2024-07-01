@@ -1,19 +1,15 @@
 let texTarea = document.querySelector('#editor');
 let btn = document.querySelector('.btn');
-let formData = {};
-const LS = localStorage;
+// сохраняем текст в  localStorage
+texTarea.addEventListener('keydown', function(e){
+   localStorage.setItem('text', texTarea.value);
+  });
 
-window.addEventListener('keydown', function(e) {
-	formData[e.target.id] = e.target.value;
-	LS.setItem('formData', JSON.stringify(formData));
-
-});
-if (LS.getItem('formData')) {
-	formData = JSON.parse(LS.getItem('formData'));
-	texTarea.innerHTML = formData.editor;
-}
-btn.addEventListener("click", function(e) {
-	e.preventDefault();
-	localStorage.removeItem('formData')
-	texTarea.value = '';
-});
+// получаем текст из  localStorage и выводим в текстовое поле
+  texTarea.innerText=localStorage.getItem('text');
+ // очищаем текстовое поле и localStorage
+  btn.addEventListener("click", function (e) {
+    e.preventDefault();
+    localStorage.removeItem('text');
+    texTarea.value =''; 
+ });
